@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+  <a class="navbar-brand" href="/LogIn">LogIn</a>
+
+  <% if (locals.tybe=="admin") { %>
+   <a class="navbar-brand" href="/admin/profile">Home</a>
+  <% } %>
+  <% if (locals.tybe=="speaker") { %>
+    <a class="navbar-brand" href="/speaker/profile?_id=<%= locals.id %> ">Home</a>
+   <% } %>
+    <a class="navbar-brand" href="/logout">LogOut</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+   
+        <li class="nav-item">
+          <a class="nav-link" href="/event/list">event list</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/speaker/list">speaker list</a>
+        </li>
+        <li class="nav-item">
+          <a  class="nav-link
+          
+          <% if(locals.tybe=="admin"){ %>
+           
+          <% }else  {%>
+            disabled 
+          <% } %> 
+         
+        
+           float-none" href="/event/add">addevent</a>
+        </li>
+        <li  style="position: absolute; right: 7%;" class="float-right nav-item mr-auto">
+      
+      
+        <% if (locals.name) { %>
+           <h2>welcome: <%=locals.name%> </h2>
+           <p><%= locals.tybe %> </p>
+          
+        <% } %>
+        </li>
+      </ul>
+    </div>
+  </nav>
